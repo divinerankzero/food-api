@@ -2,14 +2,16 @@ const foodListContainer = document.querySelector(".foodList");
 
 const foodFactory = (food) => {
     return `<article class="foodItem">
-            <br> <strong>${food.name}</strong>
-            <br> ${food.ethnicity}
-            <br> ${food.category}
-            <br> ${food.ingredients}
-            <br> ${food.countries}
-            <br> ${food.calories}
-            <br> ${food.fat}
-            <br> ${food.sugar}
+            <h2>${food.name}</h2>
+            <ul>
+                <li> <strong>Origin:</strong> ${food.ethnicity} </li>
+                <li> <strong>Category:</strong> ${food.category} </li>
+                <li> <strong>Ingredients:</strong> ${food.ingredients} </li>
+                <li> <strong>Countries of Origin:</strong> ${food.countries} </li>
+                <li> <strong>Calories per Serving:</strong> ${food.calories} </li>
+                <li> <strong>Fat per Serving:</strong> ${food.fat} </li>
+                <li> <strong>Sugar per Serving:</strong> ${food.sugar} </li>
+            </ul>
         </article>
         `
 }
@@ -44,19 +46,19 @@ fetch("http://localhost:8088/food")
                     }
                     
                     if (calories) {
-                        food.calories = calories;
+                        food.calories = calories + " kj";
                     } else {
                         food.calories = "no calories listed";
                     }
 
                     if (fat) {
-                        food.fat = fat;
+                        food.fat = fat + " g";
                     } else {
                         food.fat = "no fat listed";
                     }
 
                     if (sugar) {
-                        food.sugar = fat;
+                        food.sugar = sugar + " g";
                     } else {
                         food.sugar = "no sugar listed";
                     }
@@ -66,46 +68,3 @@ fetch("http://localhost:8088/food")
                 })
         })
     })
-
-    // Ingredients
-    // this.product.ingredients_text_en
-    
-    // Country of origin
-    // this.product.countries
-
-    // Calories per serving
-    // this.product.nutriments.energy-kcal_serving
-
-    // Fat per serving
-    // this.product.nutriments.fat_serving
-
-    // Sugar per serving
-    // this.product.nutriments.sugars_serving
-
-// FRAGMENT METHOD: CAN'T GET TO WORK
-// const fragment = document.createDocumentFragment();
-
-// const foodFactory = (foodObject) => {
-//     const foodElement = document.createElement('section');
-//     foodElement.innerHTML = `
-//     <section>
-//         <br> ${foodObject.name}
-//         <br> ${foodObject.ethnicity}
-//         <br> ${foodObject.category}
-//     </section>
-//     `
-//     fragment.appendChild(foodElement);
-// }
-
-// const addFragmentToDom = () => {
-//     foodListContainer.appendChild(fragment);
-// }
-
-// fetch("http://localhost:8088/food")
-//     .then(foods => foods.json())
-//     .then(parsedFoods => {
-//         parsedFoods.forEach(food => {
-//             foodFactory(food);
-//         })
-//     })
-//     .then(addFragmentToDom());

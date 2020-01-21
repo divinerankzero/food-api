@@ -10,3 +10,8 @@
     padding: 1em;
     width: 350px;
 }
+
+h2 {
+    padding: 0;
+    margin: 0;
+}
