@@ -1,7 +1,5 @@
 const foodListContainer = document.querySelector(".foodList");
 
-// [x] Create a function which returns a string template. 
-// The template is the HTML representation for a food item.
 const foodFactory = (food) => {
     return `<article class="foodItem">
             <br> <strong>${food.name}</strong>
@@ -11,8 +9,6 @@ const foodFactory = (food) => {
         `
 }
 
-// [x] Create a function that inserts an HTML representation 
-// of a food into the DOM
 const addFoodToDom = (HTMLFood) => {
     foodListContainer.innerHTML += HTMLFood;
 }
