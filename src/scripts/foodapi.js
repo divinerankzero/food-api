@@ -44,7 +44,7 @@ fetch("http://localhost:8088/food")
                     } else {
                         food.countries = "no countries listed";
                     }
-                    
+
                     if (calories) {
                         food.calories = calories + " kj";
                     } else {
